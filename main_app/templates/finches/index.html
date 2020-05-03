@@ -2,4 +2,27 @@
 
 {% block content %}
 <h1>Finch List</h1>
+
+
+{% for finch in finches %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">
+        <a href="/finch/{{ finch.id }}">
+          {{ finch.name }}
+        </a>
+      </span>
+      <p>Breed: {{ finch.breed }}</p>
+      <p>Description: {{ finch.description }}</p>
+      {% if finch.age > 0 %}
+        <p>Age: {{ finch.age }}</p>
+      {% else %}
+        <p>Age: New Born</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+
+
 {% endblock %} 
