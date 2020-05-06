@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Finch
-
+from django.views.generic import ListView
 
 def home(request):
     return render(request, 'home.html')
@@ -8,9 +8,12 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-def finches_index(request):
-    finches = Finch.objects.all()
-    return render(request, 'finches/index.html', { 'finches' : finches })
+class FinchList(ListView):
+    model = Finch
+
+    def get_queryset(self):
+        return Finch.objects.all()
+
 
 def finches_detail (request, finch_id):
     finch = Finch.objects.get(id=finch_id)

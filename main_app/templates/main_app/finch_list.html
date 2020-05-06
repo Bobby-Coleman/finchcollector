@@ -4,11 +4,11 @@
 <h1>Finch List</h1>
 
 
-{% for finch in finches %}
+{% for finch in finch_list %}
   <div class="card">
     <div class="card-content">
       <span class="card-title">
-        <a href="/finch/{{ finch.id }}">
+        <a href="{% url 'finches_detail' finch.id %}">
           {{ finch.name }}
         </a>
       </span>
