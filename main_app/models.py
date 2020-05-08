@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Finch(models.Model):
     name = models.CharField(max_length=100)
@@ -11,5 +12,5 @@ class Finch(models.Model):
 
     def get_absolute_url(self):
         return reverse('finches_detail', kwargs={'pk':self.id})
-
-
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
