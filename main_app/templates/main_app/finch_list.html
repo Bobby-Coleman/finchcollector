@@ -4,13 +4,12 @@
 <h1>Finch List</h1>
 
 
-{% for finch in finch_list %}
+{% for finch in finches %}
   <div class="card">
     <div class="card-content">
       <span class="card-title">
         <a href="{% url 'finches_detail' finch.id %}">
           {{ finch.name }}
-        </a>
       </span>
       <p>Breed: {{ finch.breed }}</p>
       <p>Description: {{ finch.description }}</p>
@@ -21,6 +20,7 @@
       {% endif %}
     </div>
   </div>
+</a>
 {% endfor %}
 
 
